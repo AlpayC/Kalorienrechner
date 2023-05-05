@@ -9,16 +9,19 @@ const calcCal = () => {
   const outputallkj = document.querySelector(".outputallkj");
   const outputgeneralkc = document.querySelector(".outputgeneralkc");
   const outputgeneralkj = document.querySelector(".outputgeneralkj");
+  const formulaWoman = 655.1 + 9.6 * weight + 1.8 * height - 4.7 * age;
+  const formulaMan = 66.47 + 13.7 * weight + 5 * height - 6.8 * age;
+  const convertValueKcalToKj = 4.1875;
   if (woman) {
-    outputgeneralkc.innerHTML = Math.round(
-      655.1 + 9.6 * weight + 1.8 * height - 4.7 * age
+    outputgeneralkc.innerHTML = Math.round(formulaWoman);
+    outputgeneralkj.innerHTML = Math.round(
+      outputgeneralkc.innerHTML * convertValueKcalToKj
     );
-    outputgeneralkj.innerHTML = Math.round(outputgeneralkc.innerHTML * 4.1875);
   } else if (man) {
-    outputgeneralkc.innerHTML = Math.round(
-      66.47 + 13.7 * weight + 5 * height - 6.8 * age
+    outputgeneralkc.innerHTML = Math.round(formulaMan);
+    outputgeneralkj.innerHTML = Math.round(
+      outputgeneralkc.innerHTML * convertValueKcalToKj
     );
-    outputgeneralkj.innerHTML = Math.round(outputgeneralkc.innerHTML * 4.1875);
   }
   outputallkc.innerHTML = Math.round(outputgeneralkc.innerHTML * activities);
   outputallkj.innerHTML = Math.round(outputgeneralkj.innerHTML * activities);
