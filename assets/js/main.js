@@ -9,14 +9,17 @@ const calcCal = () => {
   const outputallkj = document.querySelector(".outputallkj");
   const outputgeneralkc = document.querySelector(".outputgeneralkc");
   const outputgeneralkj = document.querySelector(".outputgeneralkj");
-  let basiswert = 0;
   if (woman) {
-    basiswert = 655.1 + 9.6 * weight + 1.8 * height - 4.7 * age;
+    outputgeneralkc.innerHTML = Math.round(
+      655.1 + 9.6 * weight + 1.8 * height - 4.7 * age
+    );
+    outputgeneralkj.innerHTML = Math.round(outputgeneralkc.innerHTML * 4.1875);
   } else if (man) {
-    basiswert = 66.47 + 13.7 * weight + 5 * height - 6.8 * age;
+    outputgeneralkc.innerHTML = Math.round(
+      66.47 + 13.7 * weight + 5 * height - 6.8 * age
+    );
+    outputgeneralkj.innerHTML = Math.round(outputgeneralkc.innerHTML * 4.1875);
   }
-  outputgeneralkc.innerHTML = Math.round(basiswert);
-  outputgeneralkj.innerHTML = Math.round(basiswert * 4.1875);
   outputallkc.innerHTML = Math.round(outputgeneralkc.innerHTML * activities);
   outputallkj.innerHTML = Math.round(outputgeneralkj.innerHTML * activities);
 };
